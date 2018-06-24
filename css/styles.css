@@ -1,0 +1,54 @@
+/*-Fonts-*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+/*---------------------------- One-Page-Template -*/
+/*-Anchor-Points-*/
+#home{}
+#about{}
+#portfolio{}
+#contact{}
+body::-webkit-scrollbar {
+  width: 0;
+}
+/*---------------------------- Page-Wrapper -*/
+.page-wrapper{font-family:'Open Sans',sans-serif;font-size:18px;line-height:1.8;margin:0 auto;}
+/*---------------- Header -*/
+header{width:100%;position:fixed;}
+
+/*-Top-Nav-*/
+.active{color:#242729;}
+nav{background-color:#fff;border-bottom:solid 1px #575D60;}
+nav li{border-right:solid 1px #575D60;}
+nav a{display:block;padding:8px 12px;text-transform:capitalize;font-size:20px;letter-spacing:2px;transition:color 0.3s;color:#575D60;}
+ul{list-style-type:none;overflow:hidden;}
+li{}
+a{text-decoration: none;}
+
+/*-Hover-*/
+a:hover:not(.active){color:#c9cdcf;}
+/*---------------------------- Main -*/
+main{width:100%;max-width:1080px;font-size:18px;line-height:1.4;margin:0 auto;color:#575D60;}
+/*---------------- Banner -*/
+.banner{}
+/*-Logo-*/
+.header-logo{}
+.main-logo{}
+
+/*-Headline-*/
+h1{text-transform:uppercase;font-size:24px;font-weight:bolder;}
+h2{text-transform:uppercase;font-size:22px;font-weight:bolder;line-height:2.0;letter-spacing:3px;padding:8px 12px;}
+h3{text-transform:capitalize;font-size:18px;line-height:1.8;letter-spacing:1px;}
+h4{text-transform:capitalize;font-size:18px;font-style:italic;line-height:1.8;padding:8px 12px;}
+/*-Text-*/
+p{padding:20px 8px;}
+
+/*---------------------------- Content-Wrapper -*/
+.content{width:100%;}
+.home{min-height:100vh;}
+.about{min-height:100vh;}
+.portfolio{min-height:100vh;}
+.contact{min-height:100vh;}
+/*---------------- image -*/
+a img{padding:10px 5px;}
+/*---------------- Footer -*/
+footer{width:100%;background-color:#161819;color:#575D60;text-transform:capitalize;font-size:18px;line-height:1.8;letter-spacing:2px;}

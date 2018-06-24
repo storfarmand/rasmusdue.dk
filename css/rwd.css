@@ -1,0 +1,15 @@
+/*---------------------------- Image -*/
+/*-Image-Scale-*/
+img{max-width:100%;}
+
+/*---------------------------- Breakpoints -*/
+/*-Computer-*/
+@media(max-width:1170px){}
+
+/*-Tablet-*/
+@media(max-width:970px){
+  .unicorn{flex-direction:column;}
+}
+
+/*-Phone-*/
+@media(max-width:750px){}
