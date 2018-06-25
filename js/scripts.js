@@ -18,10 +18,26 @@ var hash = window.location.hash;
 var section = hash.length > 0 ? hash : '#home';
 var isScrolling = false;
 var last_known_scroll_position = 0;
+var menuItems;
+
+//When the DOM is rendered assign the menu items
+window.addEventListener('DOMContentLoaded', function() {
+  menuItems = document.querySelectorAll('nav a');
+});
+
+var setActive = function(hash) {
+  menuItems.forEach(function(mi) {
+    mi.classList.remove(ACTIVE_CLASS_NAME);
+    if (mi.attributes.href.value === hash) {
+      mi.classList.add(ACTIVE_CLASS_NAME);
+    }
+  });
+}
 
 //Animated scroll to active section (#hash)
 var navigateTo = function() {
   hash = window.location.hash;
+  setActive(hash);
   var offset = hash.length > 0 ? $('.nav-' + hash.substr(1)).offset().top : '0px';
   isScrolling=true;
   $('html, body').stop().animate({
@@ -33,23 +49,6 @@ var navigateTo = function() {
       }
   }, 1000);
 };
-
-//When the DOM is rendered bind click events to the navigation items
-window.addEventListener('DOMContentLoaded', function() {
-  var menuItems = document.querySelectorAll('nav a');
-  menuItems.forEach(function(mi) {
-    if (mi.attributes.href.value === section) {
-      mi.classList.add(ACTIVE_CLASS_NAME);
-    }
-    mi.addEventListener('click', function(evt) {
-      menuItems.forEach(function(mx) {
-        mx.classList.remove(ACTIVE_CLASS_NAME);
-      });
-      mi.classList.add(ACTIVE_CLASS_NAME);
-    });
-  });
-});
-
 
 //When the hash tag in the URL changes, navigate to that section if it is a valid hash.
 window.addEventListener('hashchange', function(evt) {
@@ -71,7 +70,7 @@ window.addEventListener('scroll', function(evt) {
 
   var scrollDiff = last_known_scroll_position - window.scrollY;
   var scrollDir = scrollDiff > 0 ? 'up' : 'down';
-  
+
   //Throttle the change of section to 20px, if less don't do anything
   if (Math.abs(scrollDiff) > 20) {
     var currentSection = sections.indexOf(hash.substr(1));
